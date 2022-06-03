@@ -1,0 +1,7 @@
+1.
+	a) Nu a aparut nici o eroare la deschiderea pozei. Aparent, e doar un screenshot la un cod.
+	b) Gasesc cuvinte care duc la compilarea unui cod (dll, gcc, cod de C)
+	c) "No security vendors flagged this file as malicious"
+
+2.
+	a) Daca introduc "fmiSSI", imi zice ca parola e corecta. Daca introduc "fmiSSI    1", de exemplu, imi zice ca parola este tot corecta. parola este corecta pentru ca spatiile sunt "simboluri albe" (am uitat numele lor), si cum conditia este ca parola sa fie egala pana la un anumit caracter, iar spatiile se numara drept caractere, pot adauga orice dupa si va zice ca e corect. Totusi, daca pun la intamplare 7 caractere (cat cere conditia sa verifice) care nu sunt la fel ca "fmiSSI" sau "fmiSSI " (cu spatiu), va da ca parola este gresita.

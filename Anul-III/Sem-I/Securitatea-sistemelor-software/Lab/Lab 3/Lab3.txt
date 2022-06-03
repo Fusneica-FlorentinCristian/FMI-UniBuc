@@ -1,0 +1,35 @@
+1.1. o9/khC3Pf3/9CyNCbdzHPy5oorccEawZSFt3mgCicRnihDSM8Obhlp3vviAVuBbiOtCSz6husBWqhfF0Q/8EZ+6iI9KygD3hAfFgnzyv9w== (base64)
+=> a3dfe4842dcf7f7ffd0b23426ddcc73f2e68a2b71c11ac19485b779a00a27119e284348cf0e6e1969defbe2015b816e23ad092cfa86eb015aa85f17443ff0467eea223d2b2803de101f1609f3caff7 (b16)
+=> (xor mesaj hexa + cheie hexa) => One Time Pad este un sistem de criptare perfect sigur daca este folosit corect.
+
+1.2. Orice text clar poate obtinut dintr-un text criptat cu OTP dar cu o alta cheie. (ascii) =>
+4f72696365207465787420636c617220706f617465206f6274696e75742064696e74722d756e20746578742063726970746174206375204f545020646172206375206f20616c74612063686569652e (hexa)
+=> (xor cu mesajul initial criptat in hexa) ecad8de748ef0b1a857f032101bdb51f5e07c3c37931c37b3c3219ef748215708cf046a18588c1e2f897ca0076ca7f924eb1e6efcb1b905afed5d110228d24049b824cf2d3ec4980219208fa55cad9
+
+1.3. OTP-ul poate fi atacat stiind ca am folosit acceasi cheie la doua mesaje diferite prin ciphertext-only attack
+
+2.1 Cifrul Cezar este un sistem de criptare istoric prin substitutie. Exemplu:
+HEY SUNT FLORIN (plaintext) => OLF ZBUA MSVYPU (cyphertext, +7) => acelasi plaintext prin permutare cu -7 (sau 19 mod 26) caractere
+Criptarea prin cifrul cezar este slaba deoarece poate fi foarte usor sparta, existand doar 25 de cai de a cripta textul
+Spargerea sistemului se face printr-un table de frecvente al alfabetului daca limba este cunoscuta (sau brute force)
+
+2.2 Rail fence este o metoda de criptare ce se bazeaza pe transpozitii. Exmplu:
+HEY SUNT FLORIN (plaintext) => HS RE UTFOIYNLN (3 rails, cu punctuatie, de sus, stanga)
+Criptarea se face prin aranjarea caracterelor sub forma exact a unui gard (3 pe diagonala si apoi 1 caracter, iar modelul se repeta). 
+Acest grid este apoi recitit pe orizontala. Sistemul de criptare este usor de spart prin permutari repetate atat timp cat stim marimea gridului.
+
+3. ALICE AND BOB ARE THE WORLDS MOST FAMOUS CRYPTOGRAPHIC COUPLE. SINCE THEIR INVENTION IN 1978, THEY HAVE AT ONCE BEEN CALLED INSEPARABLE, AND HAVE BEEN THE SUBJECT OF NUMEROUS DIVORCES, TRAVELS, AND TORMENTS. IN THE ENSUING YEARS, OTHER CHARACTERS HAVE JOINED THEIR CRYPTOGRAPHIC FAMILY. THERES EVE, THE PASSIVE AND SUBMISSIVE EAVESDROPPER, MALLORY THE MALICIOUS ATTACKER, AND TRENT, TRUSTED BY ALL, JUST TO NAME A FEW. WHILE ALICE, BOB, AND THEIR EXTENDED FAMILY WERE ORIGINALLY USED TO EXPLAIN HOW PUBLIC KEY CRYPTOGRAPHY WORKS, THEY HAVE SINCE BECOME WIDELY USED ACROSS OTHER SCIENCE AND ENGINEERING DOMAINS. THEIR INFLUENCE CONTINUES TO GROW OUTSIDE OF ACADEMIA AS WELL: ALICE AND BOB ARE NOW A PART OF GEEK LORE, AND SUBJECT TO NARRATIVES AND VISUAL DEPICTIONS THAT COMBINE PEDAGOGY WITH IN-JOKES, OFTEN REFLECTING OF THE SEXIST AND HETERONORMATIVE ENVIRONMENTS IN WHICH THEY WERE BORN AND CONTINUE TO BE USED. MORE THAN JUST THE WORLDS MOST FAMOUS CRYPTOGRAPHIC COUPLE, ALICE AND BOB HAVE BECOME AN ARCHETYPE OF DIGITAL EXCHANGE, AND A LENS THROUGH WHICH TO VIEW BROADER DIGITAL CULTURE. Q.DUPONT AND A.CATTAPAN CRYPTOCOUPLE
+
+4. 
+https://www.101computing.net/enigma-machine-emulator/
+day 1 (decembrie 1944): VWU (ring setting)
+initial position: AAA (random)
+random 3 keys: BBB (random) -> (AAA)  ALV
+
+receiver knows: AAA & ALV
+encrypt & decrypt in BBB
+
+MAMAL UINIS TIOR -> (BBB) SNJXG RZCRD JLL
+SNJXG RZCRD JLL -> (BBB) MAMA LUI NISTOR
+
+Daca pe pozitia literii pui orice alta litera ca sa o decriptezi, o sa iasa alt text, indiferent de lungime. ex: AAAAA AAAAA AAA

@@ -1,0 +1,15 @@
+1.
+a) A
+b) F
+c) A
+d) A
+e) F
+f) F
+g) Fh
+
+3.
+	1. Valoarea cheii este in plain-text (hard-coded). Criptarea cu aceeasi cheie pentru toti userii. Pentru stocarea parolei ar trebui folosita o functie hash.
+	2. Username-ul este hash-uit (redundant).
+	3. Hash-uirea este facuta fara a folosi un salt. Ar trebui mai multe iteratii de SHA.
+	4. Salt in plain sight (hard coded).
+	5. Nu are salt. MD5 nu este sigura in coliziuni, ar trebui folosit un hash.

@@ -1,0 +1,34 @@
+1)
+iiii#ooo#
+##i#####o
+o##oo#ooo
+##oo#o#o#
+oo###o##o
+o###o##oo
+
+Eliminăm obstacolul de la (1, 3).
+2)
+iiii#ooo#
+##ii####o
+o##ii#ooo
+##ii#o#o#
+oo###o##o
+o###o##oo
+
+Eliminăm obstacolul de la (3, 4).
+3)
+iiii#ooo#
+##ii####o
+o##ii#ooo
+##iiii#o#
+oo###i##o
+o###o##oo
+
+Eliminăm obstacolul de la (5, 5).
+4)
+iiii#ooo#
+##ii####o
+o##ii#ooo
+##iiii#o#
+oo###i##o
+o###ii#oo

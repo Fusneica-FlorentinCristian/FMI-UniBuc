@@ -1,0 +1,5 @@
+1. dam nume PC-ului
+2. schimbam placa de retea (oprim curentul, dam drop placii si alegem ce placa vrem)
+3. Intram pe Desktop
+3. schimbam IP Configuration (wapp "Retea")
+4. schimbam Email-ul (wapp "Email")

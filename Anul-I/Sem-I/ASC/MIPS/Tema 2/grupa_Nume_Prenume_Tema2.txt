@@ -1,0 +1,159 @@
+.data
+    n: .word 5
+    v: .word 3, 4, 5, 6, 7
+    sp: .asciiz " "
+
+.text
+main:
+	# adauga n la stiva
+    lw $t0,n
+    subu $sp,$sp,4
+    sw $t0,0($sp)
+
+    # adauga v la stiva
+    la $t0,v
+    subu $sp,$sp,4
+    sw $t0,0($sp)
+
+    jal modifica # modifica vectorul
+
+	# initializam elementul
+    li $t0, 0
+    li $t1, 0 
+    lw $t2, n
+    
+# printeaza vectorul
+afiseaza_array:
+    beq $t0, $t2, exit
+
+    lw $a0, v($t1)
+    li $v0, 1
+    syscall
+
+    la $a0, sp
+    li $v0, 4
+    syscall
+
+    addi $t1, 4 # trecem la elementul urmator
+    addi $t0, 1 # crestem contorul
+    j afiseaza_array
+
+exit:
+    addu $sp, 8
+    li $v0, 10
+    syscall
+
+modifica:
+    # adauga $fp la stiva
+    subu $sp,$sp,4
+    sw $fp,0($sp)
+    addi $fp,$sp,4
+
+    # adauga $ra la stiva
+    subu $sp,$sp,4
+    sw $ra,0($sp)
+
+    # adauga $s0 la stiva
+    subu $sp,$sp,4
+    sw $s0,0($sp)
+
+    # adauga $s1 la stiva
+    subu $sp,$sp,4
+    sw $s1,0($sp)
+
+    # luam argumentele
+    lw $s0,0($fp) # v
+    lw $s1,4($fp) # n
+
+    # daca n = 0 iesi din procedura
+    beqz $s1, exitProcedura1
+
+    
+    # adauga n la stiva
+    subu $sp, 4
+    lw $t0, 0($s0)
+    sw $t0, 0($sp)
+    
+    jal suma_patrate
+    
+    addi $sp, 4
+    # v[i] = suma_patrate(v[i])
+    sw $v0, 0($s0)
+
+    addi $s0, 4  # v += 4
+    addi $s1, -1 # n -= 1
+
+	# adauga $s1 la stiva
+    subu $sp,$sp,4
+    sw $s1,0($sp)
+    
+	# adauga $s0 la stiva
+    subu $sp,$sp,4
+    sw $s0,0($sp)
+    
+    jal modifica # se reapeleaza
+    
+    addu $sp, 8
+
+exitProcedura1:
+    lw $s1, -16($fp)
+    lw $s0, -12($fp)
+    lw $ra, -8($fp)
+    lw $fp, -4($fp)
+    addu $sp, 16
+    jr $ra
+
+
+suma_patrate:
+    # adauga $fp la stiva
+    subu $sp, 4
+    sw $fp, 0($sp)
+    addi $fp, $sp, 4
+
+    # adauga $ra la stiva
+    subu $sp,$sp,4
+    sw $ra,0($sp)
+    
+    # adauga $s0 la stiva
+    subu $sp,$sp,4
+    sw $s0,0($sp)
+    
+    # extragem argumentul v[i]
+    lw $s0, 0($fp)
+    
+    #verifica daca numarul este negativ (sau egal cu 0)
+    ble $s0,$zero,numarNegativ
+    
+    subu $s0, 1    # v[i] = v[i] - 1
+
+    # daca v[i] = 0, returneaza 0
+    beq $s0, 0, default
+    
+    # adauga v[i] la stiva
+    subu $sp, 4
+    sw $s0, 0($sp)
+    
+    jal suma_patrate # se reapeleaza
+    
+    addu $sp, 4
+
+    move $t0, $v0 # s = suma_patrate(v[i])
+    mul $s0, $s0, $s0 # v[i] = v[i]^2
+    add $v0, $t0, $s0 # returneaza v[i] + s
+
+    j exitProcedura2 # iese din suma_patrate
+
+numarNegativ:
+	# il lasa neschimbat
+	move $v0,$s0
+	j exitProcedura2
+	
+default:
+    li $v0, 0
+    
+exitProcedura2:
+    lw $s0, -12($fp)
+    lw $ra, -8($fp)
+    lw $fp, -4($fp)
+    addu $sp, 12
+    jr $ra

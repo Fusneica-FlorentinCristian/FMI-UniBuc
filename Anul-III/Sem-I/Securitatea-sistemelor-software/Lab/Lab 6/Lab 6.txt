@@ -1,0 +1,13 @@
+1)
+Algoritmii folositi si rezultatele date de ei sunt prea previzili, se pot sparge prin brute-force sau prin intermediul inversarii operatiilor matematice
+
+3) Prima secventa returneaza aceeasi valoare de fiecare data, iar cea de a doua returneaza aceeasi cheie de session de fiecare data, lucruri care pot fi exploatate
+	Incorrect Usage of Seeds in Pseudo-Random Number Generator (PRNG)
+	Predictable Exact Value from Previous Values
+	
+Ce se întâmplă dacă nu se folosește același seed de fiecare dată, dar spațiul seed-urilor
+posibile este mic? Puteți găsi un CWE ID corespunzător acestui caz?
+	Small Space of Random Values
+	Insufficient Entropy
+
+Predictable Value Range from Previous Values - momentul in care se genereaza chei sau parole autom pe un limbaj / interval mic de definitie

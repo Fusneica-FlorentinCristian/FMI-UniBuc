@@ -1,0 +1,67 @@
+1 
+A)
+console.log("Facultatea de Matematica si Informatica")
+console.log("Universitatea din Bucuresti")
+console.log("https://www.youtube.com/watch?v=HIcSWuKMwOw")
+var ascuns = "Mesaj ascuns: 18367622009998665"
+
+B) 
+am folosit https://lelinhtinh.github.io/de4js/ pe JJencode
+
+C)
+18367622009998665
+
+Console:
+Facultatea de Matematica si Informatica
+Universitatea din Bucuresti
+https://www.youtube.com/watch?v=HIcSWuKMwOw
+
+2.
+A)
+WScript.Echo("You have been hacked!");
+WScript.Echo("I hope you did not run this on your own PC...");
+var f = "Facultatea";
+var mi = "de Matematica si Informatica";
+var unibuc = "Universitatea din Bucuresti";
+var curs = "Curs Info anul 3";
+var minciuna = "Acesta este un malware. Dispozitivul este compromis";
+var adevar = "Stringul anterior este o minciuna";
+try {
+    var obj = new ActiveXObject("Scripting.FileSystemObject");
+    var out = obj.OpenTextFile("./fmi.txt", 2, true, 0);
+    out.WriteLine("Bun venit la acest laborator :)");
+    out.Close();
+    var fle = obj.GetFile("./fmi.txt");
+    fle.attributes = 2
+} catch (err) {
+    WScript.Echo("Do not worry. Ghosts do not exist!")
+}
+
+Explicatie: 2 pop-up-uri si un fisier fmi.txt cu Bun venit la acest laborator :) daca nu intra pe catch
+
+B) 
+daca nu face altceva inafara de A), atunci nu este un malware
+
+C)
+Eval (JS Obfuscator)
+
+3.
+A)
+Explicatie: 2 pop-up-uri si un fisier fmi.txt cu Bun venit la acest laborator :) daca nu intra pe catch
+B)
+ASCII in HEX
+C)
+sample2 si sample3 sunt obfuscate diferit
+
+4)
+A)
+Codul acesta pare ca vrea sa faca un fisier %temp%\\hello.exe si sa-l execute.
+Imi intra pe catch, in schimb, si imi da pop-up cu "Hello!"
+B)
+Il deschidem intr-un editor si incercam sa ne dam seama ce face.
+C)
+Avand in vedere ca intra pe catch si doar imi da un pop-up, pot zice ca nu este un malware
+D)
+20/57 de anti-virus-uri l-au considerat un malware, seems pretty scary :)
+E)
+Dupa obfuscare, doar 2/56 antivirusuri l-au mai considerat malware, not so scary :)

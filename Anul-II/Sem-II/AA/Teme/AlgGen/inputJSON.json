@@ -1,0 +1,9 @@
+{
+  "precision": 6,
+  "domain": [-1, 2],
+  "function" : [-2, 1, 2],
+  "populationSize": 20,
+  "recombinationPercentage": 0.25,
+  "mutationPercentage": 0.01,
+  "epochs": 50
+}

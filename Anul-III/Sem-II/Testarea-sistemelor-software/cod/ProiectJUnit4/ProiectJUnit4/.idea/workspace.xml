@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7d92af8f-c2cc-4749-b074-28bd4b99a9b5" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="165" />
+  </component>
+  <component name="ProjectId" id="1pC2HfCkhxhz4w5U6Q1KzBn2Mkz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager" selected="PIT Runner.PITJUnit4">
+    <configuration name="All in ProiectJUnit4" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="ProiectJUnit4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PITJUnit4" type="PIT" factoryName="PIT Runner" REPORT_DIR="$PROJECT_DIR$/report" SOURCE_DIRS="$PROJECT_DIR$/src" TARGET_CLASSES="pachet1.*" TARGET_TESTS="" otherParams="--outputFormats XML,HTML --targetTests pachet2.*">
+      <module name="ProiectJUnit4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PIT" factoryName="PIT Runner" REPORT_DIR="$PROJECT_DIR$/report" SOURCE_DIRS="$PROJECT_DIR$/src" TARGET_CLASSES="pachet1.*" TARGET_TESTS="" otherParams="--outputFormats XML,HTML">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.All in ProiectJUnit4" />
+      <item itemvalue="PIT Runner.PITJUnit4" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d92af8f-c2cc-4749-b074-28bd4b99a9b5" name="Default Changelist" comment="" />
+      <created>1614672664537</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614672664537</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="240" y="50" width="801" height="672" key="#Project_Structure" timestamp="1645696479542">
+      <screen x="0" y="25" width="1280" height="724" />
+    </state>
+    <state x="240" y="50" width="801" height="672" key="#Project_Structure/0.25.1280.724@0.25.1280.724" timestamp="1645696479542" />
+    <state width="1238" height="151" key="GridCell.Tab.0.bottom" timestamp="1645698588161">
+      <screen x="0" y="25" width="1280" height="724" />
+    </state>
+    <state width="1238" height="151" key="GridCell.Tab.0.bottom/0.25.1280.724@0.25.1280.724" timestamp="1645698588161" />
+    <state width="1238" height="151" key="GridCell.Tab.0.center" timestamp="1645698588160">
+      <screen x="0" y="25" width="1280" height="724" />
+    </state>
+    <state width="1238" height="151" key="GridCell.Tab.0.center/0.25.1280.724@0.25.1280.724" timestamp="1645698588160" />
+    <state width="1238" height="151" key="GridCell.Tab.0.left" timestamp="1645698588160">
+      <screen x="0" y="25" width="1280" height="724" />
+    </state>
+    <state width="1238" height="151" key="GridCell.Tab.0.left/0.25.1280.724@0.25.1280.724" timestamp="1645698588160" />
+    <state width="1238" height="151" key="GridCell.Tab.0.right" timestamp="1645698588160">
+      <screen x="0" y="25" width="1280" height="724" />
+    </state>
+    <state width="1238" height="151" key="GridCell.Tab.0.right/0.25.1280.724@0.25.1280.724" timestamp="1645698588160" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ProiectJUnit4$All_in_ProiectJUnit4.ic" NAME="All in ProiectJUnit4 Coverage Results" MODIFIED="1615299911838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

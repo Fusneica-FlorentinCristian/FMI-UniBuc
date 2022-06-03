@@ -1,0 +1,103 @@
+.data
+  v: .word 3, 4, 5, 6, 7
+  n: .word 5
+ sp: .asciiz " "
+ 
+.text
+
+ main:
+    #adauga n la stiva
+    lw $t0,n
+    subu $sp,$sp,4
+    sw $t0,0($sp)
+
+    #adauga v la stiva
+    la $t0,v
+    subu $sp,$sp,4
+    sw $t0,0($sp)
+
+    jal modif
+	
+	#print array
+    li $t0,0 # contor=0
+    li $t1,0 # index=0
+    lw $t2,n
+    
+loop2:
+    beq $t0,$t2,exit2
+    lw $a0,v($t1)
+    li $v0,1
+    syscall
+    
+    la $a0,sp
+    li $v0,4
+    syscall
+    
+    addi $t1,$t1,4
+    addi $t0,$t0,1
+    
+    j loop2
+    
+exit2:
+    addu $sp,$sp,8
+    
+    li $v0,10
+    syscall
+    
+modif:
+    #adauga $fp la stiva
+    subu $sp,$sp,4
+    sw $fp,0($sp)
+    addi $fp,$sp,4
+
+    #adauga $ra la stiva
+    subu $sp,$sp,4
+    sw $ra,0($sp)
+
+    #adauga $s0 la stiva
+    subu $sp,$sp,4
+    sw $s0,0($sp)
+
+    #adauga $s1 la stiva
+    subu $sp,$sp,4
+    sw $s1,0($sp)
+
+    #luam args
+    lw $s0,0($fp) # v
+    lw $s1,4($fp) # n
+
+    # PRELUCRARE
+    #cat timp n != 0 modifica vectorul, altfel se opreste (eliberand stiva)
+    beqz $s1,exit_modif
+    # v[0] += 1
+    lw $t0,0($s0)
+    addi $t0,$t0,1
+    sw $t0,0($s0)
+
+    # v += 4 (adresa)
+    addi $s0,$s0,4
+    # n -= 1 (indicele)
+    addi $s1,$s1,-1
+
+    #adaugam $s1 (= n) la stiva
+    subu $sp,$sp,4
+    sw $s1, 0($sp)
+
+    #adaugam $s0 (= v) la stiva
+    subu $sp,$sp,4
+    sw $s0,0($sp)
+
+    jal modif
+    addu $sp,$sp,8
+    
+  exit_modif:
+  #eliberam stiva
+    lw $s1,-16($fp)
+    lw $s0,-12($fp)
+    lw $ra,-8($fp)
+    lw $fp,-4($fp)
+    addu $sp,$sp,16
+    
+    jr $ra
+
+mul 

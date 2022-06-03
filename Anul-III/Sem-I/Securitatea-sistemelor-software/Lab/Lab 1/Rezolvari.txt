@@ -1,0 +1,26 @@
+1.
+	A - 3
+	B - 1
+	C - 5
+	D - 2
+	E - 4
+
+3.
+	1) 
+	22 + 10 = 32
+	
+	32 => 100000
+	
+	100000 => 0 + 0 + 0 + 0 + 0 + 1 * 2 ** 5 = 32
+
+	2)
+	0XA2C7 - 1010 0010 1100 0111
+
+4.
+	1)
+	FLORIN => 70 76 79 82 73 78
+	66 82 65 86 79 => BRAVO
+
+5.
+	FUȘNEICĂ => RlXImE5FSUPEgg==
+	U3VudCBzdHVkZW50IGxhIEZNSS4= => Sunt student la FMI.

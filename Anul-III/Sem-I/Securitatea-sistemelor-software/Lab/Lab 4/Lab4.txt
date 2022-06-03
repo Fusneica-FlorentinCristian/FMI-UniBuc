@@ -1,0 +1,13 @@
+1. Noțiuni generale
+	A - 2
+	B - 4
+	C - 1
+	D - 3
+	E - 6
+	F - 5
+
+2. Identificarea vizuală a unui atac de tip phishing
+	- titlul general si neprofesional
+	- domeniul (externalys.net) arate fishy
+	- a fost detectat drept junk
+	(- formatul mail-ului in sine)

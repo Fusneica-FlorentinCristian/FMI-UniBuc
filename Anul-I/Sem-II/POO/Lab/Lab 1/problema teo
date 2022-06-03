@@ -1,0 +1,109 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+class Numar_Complex
+{
+  int real;
+  double imag;
+public:
+    Numar_Complex () = default;
+    Numar_Complex (const int real, const double imag):real
+  {
+  real}, imag
+  {
+  imag}
+  {
+  }
+  Numar_Complex (const Numar_Complex & x):real
+  {
+  x.real}, imag
+  {
+  x.imag}
+  {
+  }
+  ~Numar_Complex ()
+  {
+    real = 0;
+    imag = 0;
+  }
+  Numar_Complex & operator + (const Numar_Complex & nr)
+  {
+    Numar_Complex rez;
+    rez.imag = imag + nr.imag;
+    rez.real = real + nr.real;
+    return rez;
+  }
+  Numar_Complex & operator - (const Numar_Complex & nr)
+  {
+    Numar_Complex rez;
+    rez.imag = imag - nr.imag;
+    rez.real = real - nr.real;
+    return rez;
+  }
+  Numar_Complex & operator* (const Numar_Complex & nr)
+  {
+    Numar_Complex rez;
+    rez.imag = imag * nr.imag;
+    rez.real = real * nr.real;
+    return rez;
+  }
+  Numar_Complex & operator/ (const Numar_Complex & nr)
+  {
+    Numar_Complex rez;
+    rez.imag = imag / nr.imag;
+    if (nr.real != 0)
+      rez.real = real / nr.real;
+    return rez;
+  }
+  void operator= (const Numar_Complex & x)
+  {
+    real = x.real;
+    imag = x.imag;
+  }
+  void printNumar ()
+  {
+    if (real == imag && imag == 0)
+      cout << 0;
+    else if (imag == 0 && real != 0)
+      cout << real;
+    else if (real == 0 && imag != 0)
+      cout << imag << "*i";
+    else if (imag < 0)
+      cout << real << imag << "*i";
+    else
+      cout << real << " + " << imag << "*i";
+  }
+  int getReal ()
+  {
+    return real;
+  }
+  double getImag ()
+  {
+    return imag;
+  }
+  void setReal (int x)
+  {
+    real = x;
+  }
+  void setImag (double x)
+  {
+    imag = x;
+  }
+  int getModul ()
+  {
+    return sqrt (real * real + imag * imag);
+  }
+};
+int main()
+{
+    
+    return 0;
+}

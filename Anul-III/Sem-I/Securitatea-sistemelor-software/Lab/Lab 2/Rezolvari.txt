@@ -1,0 +1,32 @@
+1.
+	A 4
+	B 2
+	C 5
+	D 1
+	E 6
+	F 3
+2.
+	1 C
+	2 A
+	3 I
+	4 C
+	5 I
+3.
+	1 Fals
+	2 Adevarat
+	3 Fals
+4.
+	1 ne-neglijabil
+	2 ne-neglijabil
+	3 ne-neglijabil
+	4 neglijabil
+	5 neglijabil
+	6 ne-neglijabil
+5.
+	Securitatea perfecta se refera la o formula care trebuie rezolvata. Daca am gasi cu adevarat o formula perfecta, inseamna ca am rezolvat o problema NP-Hard, dar totodata asta inseamna ca putem sparge orice formula odata ce avem puterea asta.
+	In practica, chiar daca avem o formula grea de procesat, asta nu inseamna ca nu poate candva, prin absurd, sa fie depasita.
+	In momentul acesta nu este destula putere sa treaca de o securitate computationala, si chiar daca ar putea cineva sa ajunga la rezultat dupa n timp, intre timp securitatea s-ar schimba, asa ca este neglijabila sansa de a fi sparta securitatea.
+6.
+	2^512
+	2^482 secunde
+	nu, foarte scump de intretinut, cheia se va schimba mai mult ca sigur pana sa fie gasita

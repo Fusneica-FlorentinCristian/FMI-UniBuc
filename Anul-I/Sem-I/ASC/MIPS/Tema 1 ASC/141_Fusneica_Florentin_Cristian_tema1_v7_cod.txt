@@ -1,0 +1,160 @@
+.data
+	m:.space 4	#inca nu l-am citit si nu ii stiu valoarea, dar stiu ca va ocupa 4 bytes in memorie
+	n:.space 4	#inca nu l-am citit si nu ii stiu valoarea, dar stiu ca va ocupa 4 bytes in memorie
+	p:.space 4	#inca nu l-am citit si nu ii stiu valoarea, dar stiu ca va ocupa 4 bytes in memorie
+	q:.space 4	#inca nu l-am citit si nu ii stiu valoarea, dar stiu ca va ocupa 4 bytes in memorie
+	A:.space 100	#spatiu alocat matricei A
+	B:.space 100	#spatiu alocat matricei B
+	C:.space 100	#spatiu alocat matricei C
+	error:.asciiz "Matricile nu se pot inmulti"	#mesajul de eroare care va aparea in cazul in care n si p sunt diferite
+	sp:.asciiz " "	# declaram un spatiu pentru afisare
+.text
+
+main:
+
+	li $v0,5	# codul apelului sistem corespunzator lui READ INT
+	syscall		# informez sistemul ca vreau sa se uite in $v0
+	move $t0,$v0	# imi mut continutul din $v0 in $t0
+	sw $t0,m	# salvez intregul citit in memorie m
+
+	li $v0,5	#analog pt. n
+	syscall
+	move $t0,$v0
+	sw $t0,n
+
+	li $v0,5	#analog pt. p
+	syscall
+	move $t0,$v0
+	sw $t0,p
+
+	li $v0,5	#analog pt. q
+	syscall
+	move $t0,$v0
+	sw $t0,q
+
+	li $t1, 0	#$t1 va primi valoarea 0
+	li $t2, 0	#$t2 va primi valoare 0
+	lw $t3,m	#$t3 va primi valoare stocata in m
+	lw $t4,n	#$t4 va primi valoare stocata in n
+	mul $t0,$t3,$t4		#$t0=$t3*$t4, adica m*n
+
+loop_read:
+	bge $t1, $t0,read2	#daca $t1>=$t0 executa read2
+	li $v0, 5	#altfel citeste elementul curent al matricei A
+	syscall
+	move $t3, $v0
+	sw $t3, A($t2)	#stocarea in $t3 a elementului pe pozitia $t2 in memorie din A
+
+	addi $t1, $t1, 1	#crestem valoarea lui $t1 cu 1 pentru a parcurge mai usor elementele de pe linia curenta
+	addi $t2, $t2, 4	#crestem valoarea lui $t2 cu 4 pentru a putea accesa valoarea urmatorului element
+	j loop_read		#se intoarce la loop_read
+
+read2:
+
+	li $t1, 0	#analog pentru matricea B
+	li $t2, 0
+	lw $t3,p
+	lw $t4,q
+	mul $t0,$t3,$t4
+
+loop_read2:
+	bge $t1, $t0,cont	#daca $t1>=$t0 executa cont
+	li $v0, 5
+	syscall
+	move $t3, $v0
+	sw $t3, B($t2)
+	addi $t1, $t1, 1
+	addi $t2, $t2, 4
+
+	j loop_read2
+
+cont:
+
+	lw $t1,n	#$t1 primeste n
+	lw $t2,p	#$t2 primeste p
+	li $t0,0	#$t0 ia valoarea 0
+
+	bne $t1,$t2,eroare	#daca n!=p, executa eroare
+
+	li $t1,-1	#$t1 primeste -1
+	lw $t2,m	#$t2 primeste valoarea lui m
+	li $t5,0	#$t5 primeste valoarea 0
+
+matriceA:
+
+	addi $t1,1	#$t1 creste cu 1
+
+	bge $t1,$t2,afisare_matrice		#daca $t1>=$t2 (adica $t1>=m) executa afisare_matrice
+
+	li $t3,-1	#$t3 primeste -1
+	lw $t4,q	#$t4 primeste valoarea lui q
+
+matriceB:
+
+	addi $t3,1	#$t3 creste cu 1
+
+	bge $t3,$t4,matriceA	#daca $t3>=$t4 (adica $t1>=q) executa matriceA
+
+	li $t6,0 	#initializam $t6 cu 0
+	lw $t7,n	#$t7 primeste valoarea lui n
+
+matriceC:
+
+	bge $t6,$t7,elementC	#daca $t6>=$t7 (adica $t6>=n) executa elementC
+
+	mul $t8,$t1,$t7 	#$t8=$t1*$t7
+	add $t8,$t8,$t6		#$t8=$t8+$t6
+	mul $t8,$t8,4		#$t8=$t8*4
+
+	mul $t9,$t6,$t4		#$t9=$t6*$t4
+	add $t9,$t9,$t3		#$t9=$t9+$t3
+	mul $t9,$t9,4		#$t9=$t9*4
+
+
+
+	lw $t8,A($t8)	#stocarea in $t8 a elementului pe pozitia $t8 in memorie din A
+	lw $t9,B($t9)	#stocarea in $t9 a elementului pe pozitia $t9 in memorie din A
+
+	mul $s0,$t9,$t8
+	add $t0,$t0,$s0
+
+
+	addi $t6,1
+	j matriceC	#se va autoapela matriceC pana se va executa elementC
+
+elementC:
+	sw $t0,C($t5)	#stocarea in $t0 a elementului pe pozitia $t5 in memorie din A
+	addi $t5,4		#crestem valoarea lui $t5 cu 4 pentru a putea accesa valoarea urmatorului element
+	li $t0,0
+	j matriceB
+
+afisare_matrice:
+
+	li $t1, 0 
+	li $t2, 0 
+	lw $t3,m
+	lw $t4,q
+	mul $t5,$t3,$t4		#$t5=m*q
+
+loop_write:
+	bge $t1, $t5, exit	#daca au fost scrise toate elementele iesi din program executand exit
+	lw $a0, C($t2)		#se afiseaza elementul efectiv
+	li $v0, 1 
+	syscall
+
+	la $a0, sp 			#se afiseaza un spatiu
+	li $v0, 4 
+	syscall
+
+	addi $t1, $t1, 1 	#se muta la urmatorul element
+	addi $t2, $t2, 4 
+	j loop_write		#se autoapeleaza pana cand executa exit
+
+eroare:				#afiseaza "Matricile nu se pot inmulti"
+	la $a0,error
+	li $v0,4
+	syscall
+
+exit:
+	li $v0, 10
+	syscall
